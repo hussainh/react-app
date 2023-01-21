@@ -4,22 +4,42 @@ import ReactDOM from "react-dom";
 // CSS
 import './index.css';
 
+const firstBook = {
+  author:'Robert C. Martin',
+  title: 'Clean Code: A Handbook of Agile Software Craftsmanship',
+  img: "https://m.media-amazon.com/images/I/41xShlnTZTL._AC._SR360,460.jpg"
+}
+
+const secondBook = {
+  author:'Richard Helm',
+  title: 'Design patterns : elements of reusable object-oriented software',
+  img: "https://m.media-amazon.com/images/I/71W6DlT1KaL._AC._SR360,460.jpg"
+}
+
 function BookList() {
   return (
     <section className="booklist">
-      <Book />
+      <Book 
+        img={firstBook.img} 
+        title={firstBook.title} 
+        author={firstBook.author} 
+      />
+      <Book 
+        img={secondBook.img} 
+        title={secondBook.title} 
+        author={secondBook.author} 
+      />
     </section> 
   );
 }
 
-const Book = () => {
-  const author = 'Robert C. Martin';
-  const title = 'Clean Code: A Handbook of Agile Software Craftsmanship';
+const Book = (props) => {
+  console.log(props);
   return (
     <article className="book">
-      <img src ="https://m.media-amazon.com/images/I/41xShlnTZTL._AC._SR360,460.jpg" />
-      <h1>{title}</h1>
-      <h4>{author}</h4>
+      <img src = {props.img} />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>      
     </article>
   );
 }
